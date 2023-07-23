@@ -13,6 +13,7 @@
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $post->id }})">消去</button> 
                     </form>
+                    <br>
                 </div>
             @endforeach
         </div>
