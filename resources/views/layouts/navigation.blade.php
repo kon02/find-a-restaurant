@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('Hotpepper')" :active="request()->routeIs('indexs')">
+                        {{ __('店舗表示') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                         {{ __('Index') }}
                     </x-nav-link>

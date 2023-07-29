@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use App\Http\Requests\PostRequest;
 use Cloudinary;
 
@@ -61,7 +62,7 @@ class PostController extends Controller
     public function delete(Post $post)
     {
         $post->delete();
-        return redirect('/');
+        return redirect('/index');
     }
     
     public function destroy(Request $request, Post $post)

@@ -4,9 +4,11 @@
         <h2>ログインユーザー：{{ Auth::user()->name }}</h2>
         <br>
         <div class='posts'>
+            
             @foreach ($posts as $post)
                 <small>{{ $post->user->name }}</small>
                 <div class='post'>
+                    
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
@@ -22,7 +24,7 @@
                     </div>
                     @endif
                     
-                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                    <form action="index/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $post->id }})">消去</button> 

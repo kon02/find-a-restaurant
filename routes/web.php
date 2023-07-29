@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HotpepperController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,18 +14,22 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'index')->name('index');
+    Route::get('/index', 'index')->name('index');
     Route::post('/posts', 'store')->name('store');
     Route::get('/posts/create', 'create')->name('create');
     Route::get('/posts/{post}', 'show')->name('show');
     Route::put('/posts/{post}', 'update')->name('update');
-    Route::delete('/posts/{post}', 'delete')->name('delete');
+    Route::delete('index/posts/{post}', 'delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
     Route::delete('/posts/{post}/edit/destroy', 'destroy')->name('destroy');
 });
 
 Route::controller(UserController::class)->middleware(['auth'])->group(function(){
-    Route::get('/user', 'index')->name('index');
+    Route::get('/user', 'index')->name('userindex');
+});
+
+Route::controller(HotpepperController::class)->middleware(['auth'])->group(function(){
+    Route::get('/', 'index')->name('Hotpepper');
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
