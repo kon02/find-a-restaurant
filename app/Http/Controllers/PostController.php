@@ -54,6 +54,15 @@ class PostController extends Controller
     {
         $input_post = $request['post'];
         $input_post += ['user_id' => $request->user()->id];
+        if($request->file('image')){
+            $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+            //cloudinaryへ画像を送信し、
+            $publicId = cloudinary::getPublicId();
+            //直前にcloudinaryにアップロードされたが画像の名前を取得
+            $input_post += ['image_url' => $image_url];
+            $post->public_id = $publicId;
+        }
+        // dd($input_post);
         $post->fill($input_post)->save();
     
         return redirect('/posts/' . $post->id);

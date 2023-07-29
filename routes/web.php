@@ -29,7 +29,8 @@ Route::controller(UserController::class)->middleware(['auth'])->group(function()
 });
 
 Route::controller(HotpepperController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'index')->name('Hotpepper');
+    Route::get('/', 'search')->name('search');
+    Route::post('/result', 'index')->name('Hotpepper');
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");

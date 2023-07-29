@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\User;
 use GuzzleHttp\Client;
 
 class HotpepperController extends Controller
@@ -12,9 +14,16 @@ class HotpepperController extends Controller
 
     // APIキー
     private $api_key;
-
-    public function index()
+    
+    
+    public function search()
     {
+        return view('hotpapper.search');
+    }
+
+    public function index(Request $request)
+    {
+        // dd($request);
         // インスタンス生成
         $client = new Client();
 
@@ -31,16 +40,17 @@ class HotpepperController extends Controller
                 // 'keyword' => '栃木',
                 'lat' => 36.31734,//緯度
                 'lng' => 139.60950,//経度
-                'range' => 5,//1: 300m,2: 500m,3: 1000m,4: 2000m,5: 3000m
+                'range' => $request->range,//1: 300m,2: 500m,3: 1000m,4: 2000m,5: 3000m
                 'count' => 10,//何個検索結果を出すか
-                'free_drink' => 0,//飲み放題：0:絞り込まない,1:絞り込む
-                'free_food' => 0,//食べ放題：0:絞り込まない,1:絞り込む
-                'private_room' => 0,//個室：0:絞り込まない,1:絞り込む
-                'midnight_meal'=> 0,//23時以降食事OK：0:絞り込まない,1:絞り込む
-                'cocktail' => 0,//カクテル充実：0:絞り込まない,1:絞り込む
-                'sake' => 0,//日本酒充実：0:絞り込まない,1:絞り込む
+                'free_drink' => $request->free_drink,//飲み放題：0:絞り込まない,1:絞り込む
+                'free_food' => $request->free_food,//食べ放題：0:絞り込まない,1:絞り込む
+                'private_room' => $request->private_room,//個室：0:絞り込まない,1:絞り込む
+                'midnight_meal'=> $request->midnight,//23時以降食事OK：0:絞り込まない,1:絞り込む
+                'cocktail' => $request->cocktail,//カクテル充実：0:絞り込まない,1:絞り込む
+                'sake' => $request->sake,//日本酒充実：0:絞り込まない,1:絞り込む
+                'wine' => $request->wine,//ワイン充実：0:絞り込まない,1:絞り込む
                 'order' => 4,//ソート：4:おススメ順
-                'parking' => 0,//駐車場あり:0:絞り込まない,1:絞り込む
+                'parking' => $request->parking,//駐車場あり:0:絞り込まない,1:絞り込む
                 'format' => 'json',
             ],
         ];
