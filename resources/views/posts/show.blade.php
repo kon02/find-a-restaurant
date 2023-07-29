@@ -19,9 +19,11 @@
             </div>
             @endif
         </div>
-        <div class="edit">
-            <a href="/posts/{{ $post->id }}/edit">編集</a>
-        </div>
+        @if(Auth::id() == $post->user_id)
+            <div class="edit">
+                <a href="/posts/{{ $post->id }}/edit">編集</a>
+            </div>
+        @endif
         <div class="footer">
             <a href="/index">戻る</a>
         </div>

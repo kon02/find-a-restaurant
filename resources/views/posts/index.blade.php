@@ -24,11 +24,13 @@
                     </div>
                     @endif
                     
+                    @if(Auth::id() == $post->user_id)
                     <form action="index/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $post->id }})">消去</button> 
                     </form>
+                    @endif
                     <br>
                 </div>
             @endforeach

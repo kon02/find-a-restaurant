@@ -22,4 +22,5 @@
             </tr>
         @endfor
     </table>
+    <a href="/">ホームへ戻る</a>
 </x-app-layout>
