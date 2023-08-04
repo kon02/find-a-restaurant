@@ -46,11 +46,19 @@ class User extends Authenticatable
     
     public function posts()//「1対多」の関係 
     {
-        return $this->hasMany(Post::class);  
+        return $this->hasMany(Post::class);
+        // return $this->belongsTo(Post::class);
     }
     
     public function getOwnPaginateByLimit(int $limit_count = 5)
     {
         return $this::with('posts')->find(Auth::id())->posts()->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
+    
+    // 実装2
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }
