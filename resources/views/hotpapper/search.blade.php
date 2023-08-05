@@ -1,123 +1,168 @@
-<x-app-layout>
-    <h1>検索ページです</h1>
-    
-    <form action="/result" name="myform" method="POST" onsubmit="return beforeSubmit()">
-        @csrf
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="{{ asset('/css/button.css')  }}" >
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <body class="relative font-serif antialiased">
+        <div class="min-height: 100vh;">
+            <div class="bg-home-img min-h-screen bg-cover">
+                @include('layouts.navigation')
+                
+                @if (isset($header))
         
-        <div class="ran">
-            <label for="range">検索範囲</label>
-            <select name="range" required>
-                <option value="">-選択してください-</option>
-                <option value="1">300m以内</option>
-                <option value="2">500m以内</option>
-                <option value="3">1000m以内</option>
-                <option value="4">2000m以内</option>
-                <option value="5">3000m以内</option>
-            </select>
+                @endif
+                <!--表紙ページ-->
+                <!--コンテナ-->
+                <div class="flex-col space-y-6 text-center border-double border-8 border-orange-500 rounded-lg h-96 my-32 mx-44 pt-10">
+                    <h1 class="text-white text-6xl text-center font-bold">お店に出会う！</h1>
+                    <form action="/result" name="myform" method="POST" onsubmit="return beforeSubmit()">
+                        @csrf
+                        <div class="flex-col space-y-6">
+                            <div class="ran text-center">
+                                <label for="range" class="text-2xl font-bold px-2">検索範囲</label>
+                                <select name="range" required>
+                                    <option value="">-選択してください-</option>
+                                    <option value="1">300m以内</option>
+                                    <option value="2">500m以内</option>
+                                    <option value="3">1000m以内</option>
+                                    <option value="4">2000m以内</option>
+                                    <option value="5">3000m以内</option>
+                                </select>
+                            </div>
+                        
+                            <div class="flex space-x-4 justify-center">
+                                <div class="drink">
+                                    <input type="hidden" name="free_drink" value="0">
+                                    <input type="checkbox" id="free_drink" name="free_drink" value="1">
+                                    <label for="free_drink">飲み放題</label>
+                                </div>
+                                
+                                <div class="food">
+                                    <input type="hidden" name="free_food" value="0">
+                                    <input type="checkbox" id="free_food" name="free_food" value="1">
+                                    <label for="free_food">食べ放題</label>
+                                </div>
+                                
+                                <div class="pri">
+                                    <input type="hidden" name="private_room" value="0">
+                                    <input type="checkbox" id="private" name="private_room" value="1">
+                                    <label for="private">個室</label>
+                                </div>
+                                
+                                <div class="mid">
+                                    <input type="hidden" name="midnight" value="0">
+                                    <input type="checkbox" id="midnight" name="midnight" value="1">
+                                    <label for="midnight">23時以降営業</label>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4 justify-center">
+                                <div class="kack">
+                                    <input type="hidden" name="kacktail" value="0">
+                                    <input type="checkbox" id="kacktail" name="kacktail" value="1">
+                                    <label for="kacktail">カクテル充実</label>
+                                </div>
+                                
+                                <div class="sa">
+                                    <input type="hidden" name="sake" value="0">
+                                    <input type="checkbox" id="sake" name="sake" value="1">
+                                    <label for="sake">日本酒充実</label>
+                                </div>
+                                
+                                <div class="wi">
+                                    <input type="hidden" name="wine" value="0">
+                                    <input type="checkbox" id="wine" name="wine" value="1">
+                                    <label for="wine">ワイン充実</label>
+                                </div>
+                                
+                                <div class="par">
+                                    <input type="hidden" name="parking" value="0">
+                                    <input type="checkbox" id="parking" name="parking" value="1">
+                                    <label for="parking">駐車場</label>
+                                </div>
+                            </div>
+                            
+                            <input type="hidden" id="latitudeInput" name="latitude" value="">
+                            <input type="hidden" id="longitudeInput" name="longitude" value="">
+                            <!--軽度と緯度をサーバーに送る-->
+                            
+                            
+                            <button id="btn" type="submit" class="px-5 py-2 bg-orange-400 rounded-md text-white hover:bg-orange-700 cursor-pointer font-bold">この条件で検索する</button>
+                        </div>
+                    </form>
+                    <br>
+                    <!--テスト-->
+                </div>
+            </div>
+        
+                <h1>緯度と経度計測</h1>
+                <div class="center">
+                    <div class="txt-margin">
+                        <p>緯度：<span id="latitude">???</span><span>度</span></p>
+                        <p>経度：<span id="longitude">???</span><span>度</span></p>
+                    </div>
+                </div>
+        
+        <div class="container p-0 m-0 mx-auto border border-red-500 h-96 my-64">
+            <div>
+                <p class="font-serif text-center text-7xl mb-20">食スルとは？</p>
+            </div>
+            <div class="font-serif text-5xl">
+                <p>食スルとは、好みに合わせて、お店を一つ紹介するアプリです。</p>
+                <p>皆さんは、お店選びで困ったことはありませんか？そんな時に活用していただきたいです。</p>
+            </div>
         </div>
+            
         
-        <div class="drink">
-            <input type="checkbox" name="free_drink" value="1">
-            <input type="hidden" name="free_drink" value="0">
-            <label for="free_drink">飲み放題</label>
+        
+        <script>
+            function beforeSubmit() {
+                if(window.confirm('本当にこの内容で検索しますか？')) {
+                  return true;
+                } else {
+                  return false;
+                }
+              }
+              
+            // ボタンを押した時の処理
+            document.addEventListener("DOMContentLoaded", function() {
+                // 位置情報を取得する
+                navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+            });
+            
+            // 取得に成功した場合の処理
+            function successCallback(position){
+                // 緯度を取得し画面に表示
+                var latitude = position.coords.latitude;
+                document.getElementById("latitude").innerHTML = latitude;
+                // 経度を取得し画面に表示
+                var longitude = position.coords.longitude;
+                document.getElementById("longitude").innerHTML = longitude;
+                
+                // 緯度と経度の値を隠し入力フィールドに設定
+                document.getElementById("latitudeInput").value = latitude;
+                document.getElementById("longitudeInput").value = longitude;
+            };
+            
+            // 取得に失敗した場合の処理
+            function errorCallback(error){
+                alert("位置情報が取得できませんでした");
+            };
+        </script>
+        
         </div>
-        
-        <div class="food">
-            <input type="checkbox" name="free_food" value="1">
-            <input type="hidden" name="free_food" value="0">
-            <label for="free_food">食べ放題</label>
-        </div>
-        
-        <div class="pri">
-            <input type="checkbox" name="private_room" value="1">
-            <input type="hidden" name="private_room" value="0">
-            <label for="private">個室</label>
-        </div>
-        
-        <div class="mid">
-            <input type="checkbox" name="midnight" value="1">
-            <input type="hidden" name="midnight" value="0">
-            <label for="midnight">23時以降営業</label>
-        </div>
-        
-        <div class="kack">
-            <input type="checkbox" name="kacktail" value="1">
-            <input type="hidden" name="kacktail" value="0">
-            <label for="kacktail">カクテル充実</label>
-        </div>
-        
-        <div class="sa">
-            <input type="checkbox" name="sake" value="1">
-            <input type="hidden" name="sake" value="0">
-            <label for="sake">日本酒充実</label>
-        </div>
-        
-        <div class="wi">
-            <input type="checkbox" name="wine" value="1">
-            <input type="hidden" name="wine" value="0">
-            <label for="wine">ワイン充実</label>
-        </div>
-        
-        <div class="par">
-            <input type="checkbox" name="parking" value="1">
-            <input type="hidden" name="parkingk" value="0">
-            <label for="parking">駐車場</label>
-        </div>
-        
-        <input type="hidden" id="latitudeInput" name="latitude" value="">
-        <input type="hidden" id="longitudeInput" name="longitude" value="">
-        <!--軽度と緯度をサーバーに送る-->
-        
-        
-        <button id="btn" type="submit">この条件で検索する</button>
-    </form>
-    <br>
-    
-    <!--テスト-->
-    <h1>緯度と経度計測</h1>
-    <div class="center">
-        <div class="txt-margin">
-            <p>緯度：<span id="latitude">???</span><span>度</span></p>
-            <p>経度：<span id="longitude">???</span><span>度</span></p>
-        </div>
-    </div>
-    
-    
-    <script>
-        function beforeSubmit() {
-            if(window.confirm('本当にこの内容で検索しますか？')) {
-              return true;
-            } else {
-              return false;
-            }
-          }
-          
-          
-          
-          
-        // ボタンを押した時の処理
-    document.getElementById("btn").onclick = function(){
-        // 位置情報を取得する
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    };
-    
-    // 取得に成功した場合の処理
-    function successCallback(position){
-        // 緯度を取得し画面に表示
-        var latitude = position.coords.latitude;
-        document.getElementById("latitude").innerHTML = latitude;
-        // 経度を取得し画面に表示
-        var longitude = position.coords.longitude;
-        document.getElementById("longitude").innerHTML = longitude;
-        
-        // 緯度と経度の値を隠し入力フィールドに設定
-        document.getElementById("latitudeInput").value = latitude;
-        document.getElementById("longitudeInput").value = longitude;
-    };
-    
-    // 取得に失敗した場合の処理
-    function errorCallback(error){
-        alert("位置情報が取得できませんでした");
-    };
-    </script>
-</x-app-layout>
+    </body>
+</html>
