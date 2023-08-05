@@ -7,6 +7,22 @@
             
             @foreach ($posts as $post)
                 <small>{{ $post->user->name }}</small>
+                
+                @auth
+                <!-- Post.phpに作ったisLikedByメソッドをここで使用 -->
+                @if (!$post->isLikedBy(Auth::user()))
+                    <span class="likes">
+                        <i class="fas fa-heart like-toggle cursor-pointer" data-post-id="{{ $post->id }}"></i>
+                    <span class="like-counter">{{$post->likes_count}}</span>
+                    </span><!-- /.likes -->
+                @else
+                    <span class="likes">
+                        <i class="fas fa-heart heart like-toggle liked text-red-600" data-post-id="{{ $post->id }}"></i>
+                    <span class="like-counter">{{$post->likes_count}}</span>
+                    </span><!-- /.likes -->
+                @endif
+                @endauth
+                
                 <div class='post'>
                     
                     <h2 class='title'>
@@ -38,9 +54,7 @@
         <a href='/posts/create'>作成</a>
         <br>
         <a href='/user'>マイページ</a>
-        <div class='paginate'>
-            {{ $posts->links() }}
-        </div>
+        
         <script>
             function deletePost(id) {
                 'use strict'

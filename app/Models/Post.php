@@ -30,4 +30,16 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    // 実装1
+    public function likes()
+    {
+        return $this->hasMany('App\Models\Like');
+    }
+    
+    // 実装2
+    // Viewで使う、いいねされているかを判定するメソッド。
+    public function isLikedBy($user): bool {
+        return Like::where('user_id', $user->id)->where('post_id', $this->id)->first() !==null;
+    }
 }

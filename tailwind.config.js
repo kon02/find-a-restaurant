@@ -14,6 +14,10 @@ module.exports = {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
+        
+        backgroundImage: {
+            "home-img": "url('../../public/mediterranean-cuisine-gef56f1866_1920.jpg')",
+        },
     },
 
     plugins: [require('@tailwindcss/forms')],

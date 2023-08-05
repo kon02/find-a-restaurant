@@ -1,0 +1,229 @@
+.drink{
+    position: relative;
+}
+.drink input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+.drink label{
+    padding: 3px 15px;
+    border-radius: 20px;
+    background: #eee;
+    display: inline-block;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+.drink label:hover,
+.drink input:checked + label{
+    background: #af975e;
+    color: #FFF;
+}
+.drink input:focus + label{
+    box-shadow: 0 0 4px #af975e;
+}
+
+
+
+.food{
+    position: relative;
+}
+.food input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+.food label{
+    padding: 3px 15px;
+    border-radius: 20px;
+    background: #eee;
+    display: inline-block;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+.food label:hover,
+.food input:checked + label{
+    background: #af975e;
+    color: #FFF;
+}
+.food input:focus + label{
+    box-shadow: 0 0 4px #af975e;
+}
+
+
+
+.pri{
+    position: relative;
+}
+.pri input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+.pri label{
+    padding: 3px 15px;
+    border-radius: 20px;
+    background: #eee;
+    display: inline-block;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+.pri label:hover,
+.pri input:checked + label{
+    background: #af975e;
+    color: #FFF;
+}
+.pri input:focus + label{
+    box-shadow: 0 0 4px #af975e;
+}
+
+
+
+.mid{
+    position: relative;
+}
+.mid input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+.mid label{
+    padding: 3px 15px;
+    border-radius: 20px;
+    background: #eee;
+    display: inline-block;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+.mid label:hover,
+.mid input:checked + label{
+    background: #af975e;
+    color: #FFF;
+}
+.mid input:focus + label{
+    box-shadow: 0 0 4px #af975e;
+}
+
+
+
+.kack{
+    position: relative;
+}
+.kack input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+.kack label{
+    padding: 3px 15px;
+    border-radius: 20px;
+    background: #eee;
+    display: inline-block;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+.kack label:hover,
+.kack input:checked + label{
+    background: #af975e;
+    color: #FFF;
+}
+.kack input:focus + label{
+    box-shadow: 0 0 4px #af975e;
+}
+
+
+
+.sa{
+    position: relative;
+}
+.sa input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+.sa label{
+    padding: 3px 15px;
+    border-radius: 20px;
+    background: #eee;
+    display: inline-block;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+.sa label:hover,
+.sa input:checked + label{
+    background: #af975e;
+    color: #FFF;
+}
+.sa input:focus + label{
+    box-shadow: 0 0 4px #af975e;
+}
+
+
+
+.wi{
+    position: relative;
+}
+.wi input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+.wi label{
+    padding: 3px 15px;
+    border-radius: 20px;
+    background: #eee;
+    display: inline-block;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+.wi label:hover,
+.wi input:checked + label{
+    background: #af975e;
+    color: #FFF;
+}
+.wi input:focus + label{
+    box-shadow: 0 0 4px #af975e;
+}
+
+
+
+.par{
+    position: relative;
+}
+.par input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+.par label{
+    padding: 3px 15px;
+    border-radius: 20px;
+    background: #eee;
+    display: inline-block;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0px 5px;
+    font-size: 20px;
+}
+.par label:hover,
+.par input:checked + label{
+    background: #af975e;
+    color: #FFF;
+}
+.par input:focus + label{
+    box-shadow: 0 0 4px #af975e;
+}
