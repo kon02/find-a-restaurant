@@ -9,13 +9,15 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('search')" :active="request()->routeIs('search')">
-                        <div class="text-1xl font-bold">
-                            {{ __('ホーム画面') }}
+                        <div class="text-1xl font-bold flex space-x-1 my-auto">
+                            <span class="material-symbols-outlined space-x-1 my-auto">person</span>
+                            <div>{{ __('ホーム画面') }}</div>
                         </div>
                     </x-nav-link>
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
-                        <div class="text-1xl font-bold">
-                            {{ __('みんなの投稿') }}
+                        <div class="text-1xl font-bold flex space-x-1 my-auto">
+                            <span class="material-symbols-outlined space-x-1 my-auto">mark_as_unread</span>
+                            <div>{{ __('みんなの投稿') }}</div>
                         </div>
                     </x-nav-link>
                 </div>
