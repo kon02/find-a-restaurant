@@ -34,6 +34,7 @@ class PostController extends Controller
     
     public function store(Post $post, PostRequest $request)//PostRequestで条件を満たさないと保存できないようにする
     {
+        // dd($request['post']);
         $input = $request['post'];
         $input += ['user_id' => $request->user()->id];
         if($request->file('image')){

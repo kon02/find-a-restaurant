@@ -17,6 +17,7 @@ module.exports = {
         
         backgroundImage: {
             "home-img": "url('../../public/mediterranean-cuisine-gef56f1866_1920.jpg')",
+            "result-img": "url('../../public/22973038.jpg')",
         },
     },
 

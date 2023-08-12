@@ -24,7 +24,7 @@ class HotpepperController extends Controller
     // API処理
     public function index(Request $request)
     {
-        dd($request);
+        // dd($request);
         // dd($request->latitude);
         // dd($request->longitude);
         if($request->latitude && $request->longitude)
