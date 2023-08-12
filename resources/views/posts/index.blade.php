@@ -12,6 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -40,7 +41,7 @@
                 
                 <!--ブログ投稿-->
                 @foreach ($posts as $post)
-                <div class="container mx-auto bg-white my-10 py-auto shadow-lg flex relative">
+                <div class="container mx-auto bg-white mt-10 py-auto shadow-lg flex relative">
                     <div>
                         @if($post->image_url)
                         <a href="/posts/{{ $post->id }}">
