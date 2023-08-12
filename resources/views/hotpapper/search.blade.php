@@ -26,13 +26,13 @@
                 @endif
                 <!--表紙ページ-->
                 <!--コンテナ-->
-                <div class="flex-col space-y-6 text-center border-double border-8 border-orange-500 rounded-lg h-96 my-32 mx-44 pt-10">
+                <div class="flex-col space-y-6 text-center border-double border-8 border-orange-500 rounded-lg shadow-lg h-96 my-32 mx-44 pt-10">
                     <h1 class="text-white text-6xl text-center font-bold">お店に出会う！</h1>
                     <form action="/result" name="myform" method="POST" onsubmit="return beforeSubmit()">
                         @csrf
                         <div class="flex-col space-y-6">
                             <div class="ran text-center">
-                                <label for="range" class="text-2xl font-bold px-2">検索範囲</label>
+                                <label for="range" class="text-1xl font-bold px-2">検索範囲</label>
                                 <select name="range" required>
                                     <option value="">-選択してください-</option>
                                     <option value="1">300m以内</option>
@@ -100,35 +100,53 @@
                             <!--軽度と緯度をサーバーに送る-->
                             
                             
-                            <button id="btn" type="submit" class="px-5 py-2 bg-orange-400 rounded-md text-white hover:bg-orange-700 cursor-pointer font-bold">この条件で検索する</button>
+                            <button id="btn" type="submit" class="px-5 py-2 bg-orange-400 rounded-md text-white duration-75 hover:bg-orange-700 cursor-pointer font-bold">この条件で検索する</button>
                         </div>
                     </form>
                     <br>
                     <!--テスト-->
                 </div>
-            </div>
-        
-                <h1>緯度と経度計測</h1>
-                <div class="center">
-                    <div class="txt-margin">
-                        <p>緯度：<span id="latitude">???</span><span>度</span></p>
-                        <p>経度：<span id="longitude">???</span><span>度</span></p>
+                <div class="opacity-0">
+                    <h1>緯度と経度計測</h1>
+                    <div class="center">
+                        <div class="txt-margin">
+                            <p>緯度：<span id="latitude">???</span><span>度</span></p>
+                            <p>経度：<span id="longitude">???</span><span>度</span></p>
+                        </div>
                     </div>
                 </div>
-        
-        <div class="container p-0 m-0 mx-auto border border-red-500 h-96 my-64">
-            <div>
-                <p class="font-serif text-center text-7xl mb-20">食スルとは？</p>
             </div>
-            <div class="font-serif text-5xl">
-                <p>食スルとは、好みに合わせて、お店を一つ紹介するアプリです。</p>
-                <p>皆さんは、お店選びで困ったことはありませんか？そんな時に活用していただきたいです。</p>
+        
+        <div class="fade">
+            <div class="container p-0 m-0 mx-auto h-96 my-48">
+                <div>
+                    <p class="font-serif text-center text-7xl mb-20">食スルとは？</p>
+                </div>
+                <div class="font-serif text-5xl">
+                    <p>食スルとは、好みに合わせて、お店を一つ紹介するアプリです。</p>
+                    <p>皆さんは、お店選びで困ったことはありませんか？そんな時に活用していただきたいです。</p>
+                </div>
             </div>
         </div>
             
         
         
         <script>
+        
+            const targets = document.getElementsByClassName('fade');
+            for(let i = targets.length; i--;){
+             let observer = new IntersectionObserver((entries, observer) => {
+              for(let j = entries.length; j--;){
+               if (entries[j].isIntersecting) {
+                entries[j].target.classList.add('active');
+               } else{
+                entries[j].target.classList.remove('active');
+               }
+              }
+             });
+             observer.observe(targets[i]);
+            }
+        
             function beforeSubmit() {
                 if(window.confirm('本当にこの内容で検索しますか？')) {
                   return true;

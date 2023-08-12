@@ -227,3 +227,13 @@
 .par input:focus + label{
     box-shadow: 0 0 4px #af975e;
 }
+
+
+.fade {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 1.5s, transform 1s;
+}.fade.active {
+	opacity: 1;
+	transform: translateY(0px);
+}
