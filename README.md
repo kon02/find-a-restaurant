@@ -27,17 +27,30 @@
   - Breeze
   - Git/GitHub
   - Heroku
-  - Buzzle
+  - Guzzle
   - Cloudinary
   - Material Icon
   - Web API
+    - Hotpepper API
+    - Geolocation API
   - AWS
     - EC2
     - Cloud9
 
-## 
-
-
+## 機能一蘭
+- ユーザー登録 (Breeze)
+- ログイン機能 (Breeze)
+- ログアウト機能 (Breeze)
+- 検索機能 (Hotpepper API)
+  - 位置情報取得 (Geolocation API)
+- 投稿機能
+  - 編集機能
+  - 削除機能
+  - 新規作成
+- 画像投稿 (Cloudinary)
+- 画像削除 (Cloudinary)
+- いいね機能 (Ajax)
+- マイページ
 
 
 
