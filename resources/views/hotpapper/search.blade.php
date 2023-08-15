@@ -129,6 +129,71 @@
                 </div>
             </div>
         </div>
+        
+        
+        
+        <div class="border-b-4 border-bg-slate-200 mt-12 text-6xl font-bold text-center text-shadow-xl pb-12">みんなの投稿</div>
+        
+        <div class="fade">
+            <div class="font-sans container mx-auto bg-orange-50 my-10 py-auto shadow-lg flex relative mt-14">
+                <div>
+                        <img src="../images.jpeg" alt="画像が読み込めません。" width="300" height="200"/>
+                        <!--class="z-10 transition-opacity duration-300 ease-in-out hover:opacity-75"-->
+                </div>
+                
+                <div class="relative top-2 left-5">
+                    <div class="flex">
+                        <span class="material-symbols-outlined mt-1 mr-2">account_circle</span>
+                        <div>
+                            <p class="text-xs">yamada01<p>
+                            <p class="text-xs">2023-08-16 03:00:19</p>
+                        </div>
+                    </div>
+                
+                    <div class="pt-2">
+                        <h2 class="text-3xl font-bold duration-75 hover:text-slate-500">飯山商店</h2>
+                    </div>
+                    
+                    <div class="text-2xl pt-4">
+                        <p class="">このお店のラーメンは格別に美味しいです！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="fade">
+            <div class="font-sans container mx-auto bg-orange-50 my-10 py-auto shadow-lg flex relative">
+                <div>
+                        <img src="../imagesrrr.jpeg" alt="画像が読み込めません。" width="300" height="200"/>
+                        <!--class="z-10 transition-opacity duration-300 ease-in-out hover:opacity-75"-->
+                </div>
+                
+                
+                <div class="relative top-2 left-5">
+                    <div class="flex">
+                        <span class="material-symbols-outlined mt-1 mr-2">account_circle</span>
+                        <div>
+                            <p class="text-xs">tanaka01<p>
+                            <p class="text-xs">2023-08-17 06:00:50</p>
+                        </div>
+                    </div>
+            
+        
+                    <div class="pt-2">
+                        <h2 class="text-3xl font-bold duration-75 hover:text-slate-500">山田食堂</h2>
+                    </div>
+                    
+                    <div class="text-2xl pt-4">
+                        <p class="">全てが大盛りです！是非一度は言って欲しい！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex justify-center mt-14 mb-10">
+            <a href="/index" class="text-2xl px-3 py-2 bg-blue-500 rounded-md text-white hover:bg-blue-800 cursor-pointer">さらに見る</a>
+        </div>
             
         
         
