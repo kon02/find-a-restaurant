@@ -52,5 +52,11 @@
 - いいね機能 (Ajax)
 - マイページ
 
+## リンク
+https://syokusuru-b45cdc7b0026.herokuapp.com/
+
+### テストアカウント
+- メールアドレス：sample@gmail.com
+- パスワード：samplesample
 
 
