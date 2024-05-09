@@ -53,6 +53,7 @@
 - マイページ
 
 ## リンク
+現在は使用できません。
 https://syokusuru-b45cdc7b0026.herokuapp.com/
 
 ### テストアカウント
